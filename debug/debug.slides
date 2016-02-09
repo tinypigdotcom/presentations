@@ -1,54 +1,133 @@
 %%%
-*Debugging, and How to Do Less of It* format:markup page:01
+*Debugging, and How to Do Less of It* format:markup slide:001
 
 David M. Bradford
 OmniTI
 
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:002
 
+*Who am I?*
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+David M. Bradford
+@tinypig
+tinypig.com
 
 %%%
-*Debugging, and How to Do Less of It* page:02
+*Debugging, and How to Do Less of It* format:markup slide:003
 
-This is page 2!
-
-
+*Who am I? - Mnemonic Device*
 
 
+tinypig
+
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:004
+
+*Who am I? - Mnemonic Device*
 
 
+tinypig - Easy to remember!
+
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:005
+
+*Who am I? - Mnemonic Device*
 
 
+tinypig - Easy to remember!
+
+\* I am neither tiny
+
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:006
+
+*Who am I? - Mnemonic Device*
 
 
+tinypig - Easy to remember!
 
+\* I am neither tiny
 
+\* nor a pig
 
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:007
 
+*Who am I?*
 
+\* Web Engineer at OmniTI
 
+    - Full stack tech consulting
 
+    - Remote database management and consulting
 
+    - Large Scale / Mission Critical
 
+    - We're Hiring!
 
+    - omniti.com
 
-.
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:008
+
+*Why This Talk?*
+
+\* Debugging sucks!
+
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:009
+
+*Why This Talk?*
+
+\* Debugging sucks butt.
+
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:010
+
+*Why This Talk?*
+
+\* Debugging sucks! But...
+
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:011
+
+*Why This Talk?*
+
+\* Debugging sucks! But...
+
+\* The better we get at it
+
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:012
+
+*Why This Talk?*
+
+\* Debugging sucks! But...
+
+\* The better we get at it
+
+\* The less of our time it takes
+
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:013
+
+*Why This Talk?*
+
+\* Debugging sucks! But...
+
+\* The better we get at it
+
+\* The less of our time it takes (hopefully)
+
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:014
+
+*Why This Talk?*
+
+\* Debugging sucks! But...
+
+\* The better we get at it
+
+\* The less of our time it takes (hopefully)
 
