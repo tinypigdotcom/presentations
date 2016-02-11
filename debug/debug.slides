@@ -131,3 +131,72 @@ tinypig - Easy to remember!
 
 \* The less of our time it takes (hopefully)
 
+\* But more importantly:
+
+\* Let's find strategies to avoid having to do it at all
+
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:015
+
+*The Most Important Slide In The Deck*
+
+The next slide contains my least favorite error message... (slide:016)
+
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:017
+
+*The worst error message is no message*
+
+Because:
+
+\* The code is not working
+
+\* you have no idea why
+
+\* more commonly known as a "bug"
+
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:018
+
+Consider the following program:
+
+    $prson='David';
+    print "Hello, $person!";
+
+Output:
+Hello, !
+
+narration:What if, instead of just happily running and quietly failing to do what we want, we got an error message that said "The variable '$person' is misspelled when you first try to use it."? Telling me what, specifically, is wrong is the best thing that can happen whenever there is a problem.
+
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:019
+
+Let's make it happen...
+
+
+    $prson='David';
+    print "Hello, $person!";
+
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:020
+
+Boom.
+
+    use strict;
+    $prson='David';
+    print "Hello, $person!";
+
+%%%
+*Debugging, and How to Do Less of It* format:markup slide:021
+
+
+
+    use strict;
+    $prson='David';
+    print "Hello, $person!";
+
+Output:
+Global symbol "$prson" requires explicit package name (did you forget to declare "my $prson"?) at a.pl line 2.
+Global symbol "$person" requires explicit package name (did you forget to declare "my $person"?) at a.pl line 3.
+Execution of a.pl aborted due to compilation errors.
+
