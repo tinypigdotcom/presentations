@@ -1,0 +1,153 @@
+#!/usr/bin/perl
+# Built from perl.t template
+# purpose: renumber perl tests
+
+#    Copyright (C) 2015  David M. Bradford
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your u_option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see https://www.gnu.org/licenses/gpl.txt
+#
+#    The author, David M. Bradford, can be contacted at:
+#    davembradford@gmail.com
+
+
+use strict;
+use warnings FATAL => 'all';
+
+BEGIN { $| = 1 }
+
+use File::Basename;
+use File::Copy;
+use Getopt::Long;
+
+our $VERSION = '0.0.1';
+
+my $PROG = basename($0);
+my $ERR_EXIT = 2;
+
+sub usage_top {
+    warn "Usage: $PROG TEST_FILENAME\n";
+}
+
+sub short_usage {
+    usage_top();
+    warn "Try '$PROG --help' for more information.\n";
+}
+
+sub errout {
+    my $message = join( ' ', @_ );
+    warn "$PROG: $message\n";
+    short_usage();
+    exit $ERR_EXIT;
+}
+
+
+
+sub usage {
+    usage_top();
+    warn <<EOF;
+renumber perl tests
+Example: $PROG 01-shopping_cart.t
+
+  -h, --help    display this help text and exit
+  -v, --version display version information and exit
+
+EOF
+    return;
+}
+
+sub do_short_usage {
+    short_usage();
+    exit $ERR_EXIT;
+}
+
+sub version {
+    warn "$PROG $VERSION\n";
+    return;
+}
+
+my $h        = 0;
+my $help     = 0;
+my $version  = 0;
+
+
+Getopt::Long::Configure ("bundling");
+
+my %options = (
+    "help"   => \$help,
+    "version" => \$version,
+
+);
+
+# Explicitly add single letter version of each option to allow bundling
+my ($key, $value);
+my %temp = %options;
+while (($key,$value) = each %temp) {
+    my $letter = $key;
+    $letter =~ s/(\w)\w*/$1/;
+    $options{$letter} = $value;
+}
+# Fix-ups from previous routine
+$options{h} = \$h;
+
+GetOptions(%options) or errout("Error in command line arguments");
+
+if    ($help)     { usage(); exit    }
+elsif ($h)        { do_short_usage() }
+elsif ($version)  { version(); exit  }
+
+
+use strict;
+use warnings FATAL => 'all';
+
+use IO::File;
+
+sub do_renumbering {
+    my ($file) = @_;
+    $file ||= 'debug.slides';
+
+    my $backup_file = "$file.bak";
+    copy($file,$backup_file) or die "Copy to $backup_file failed: $!";
+
+    my $infile = $backup_file;
+    my $outfile = $file;
+
+    my $ifh = IO::File->new($infile, '<');
+    die if (!defined $ifh);
+
+    my $ofh = IO::File->new($outfile, '>');
+    die if (!defined $ofh);
+
+    my $count = 1;
+    while(<$ifh>) {
+        chomp;
+        if ( /slide:(\d\d\d\b)/ ) {
+            my $pcount = sprintf('%03d', $count++);
+            s/slide:\d\d\d\b/slide:$pcount/;
+        }
+        print $ofh "$_\n";
+    }
+    $ifh->close;
+    $ofh->close;
+}
+
+sub main {
+    my @argv = @_;
+    do_renumbering(@argv);
+    return;
+}
+
+my $rc = ( main(@ARGV) || 0 );
+
+exit $rc;
+
