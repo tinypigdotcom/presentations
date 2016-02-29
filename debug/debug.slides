@@ -21,13 +21,7 @@ tinypig.com
 
 tinypig
 
-%%%
-*Debugging, and How to Do Less of It* format:markup slide:004
-
-*Who am I? - Mnemonic Device*
-
-
-tinypig - Easy to remember!
+narration: Easy to remember!
 
 %%%
 *Debugging, and How to Do Less of It* format:markup slide:005
@@ -35,7 +29,7 @@ tinypig - Easy to remember!
 *Who am I? - Mnemonic Device*
 
 
-tinypig - Easy to remember!
+tinypig
 
 \* I am neither tiny
 
@@ -45,7 +39,7 @@ tinypig - Easy to remember!
 *Who am I? - Mnemonic Device*
 
 
-tinypig - Easy to remember!
+tinypig
 
 \* I am neither tiny
 
@@ -166,7 +160,10 @@ Consider the following program:
 Output:
 Hello, !
 
-narration:What if, instead of just happily running and quietly failing to do what we want, we got an error message that said "The variable '$person' is misspelled when you first try to use it."? Telling me what, specifically, is wrong is the best thing that can happen whenever there is a problem.
+narration:What if, instead of just happily running and quietly failing to do
+what we want, we got an error message that said "The variable '$person' is
+misspelled when you first try to use it."? Telling me what, specifically, is
+wrong is the best thing that can happen whenever there is a problem.
 
 %%%
 *Debugging, and How to Do Less of It* format:markup slide:019
@@ -196,7 +193,9 @@ Boom.
     print "Hello, $person!";
 
 Output:
-Global symbol "$prson" requires explicit package name (did you forget to declare "my $prson"?) at a.pl line 2.
-Global symbol "$person" requires explicit package name (did you forget to declare "my $person"?) at a.pl line 3.
+Global symbol "$prson" requires explicit package name (did you forget to
+declare "my $prson"?) at a.pl line 2.
+Global symbol "$person" requires explicit package name (did you forget to
+declare "my $person"?) at a.pl line 3.
 Execution of a.pl aborted due to compilation errors.
 
